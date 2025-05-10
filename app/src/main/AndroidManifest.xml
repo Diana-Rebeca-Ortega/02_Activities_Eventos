@@ -23,6 +23,7 @@
         </activity>
 
         <activity android:name=".Activity_CalSencillita"></activity>
+        <activity android:name=".Activity_CalBasica"></activity>
     </application>
 
 </manifest>

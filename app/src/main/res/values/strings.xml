@@ -3,4 +3,33 @@
      <string name="titulo">CALCULADORA</string>
     <string name="btn_sencilla">SENCILLA</string>
 
+    <string name="txtTitulo">ESTANDAR</string>
+    <string name="cajaResultado">0</string>
+    <string name="btn_Porciento">%</string>
+    <string name="btn_Raiz">√</string>
+    <string name="btn_Cuadrado">x2</string>
+    <string name="btn_UnoEntreX">1/X</string>
+    <string name="btn_CE">CE</string>
+    <string name="btn_C">C</string>
+    <string name="btn_Borrar">Borrar</string>
+    <string name="btn_Entre">/</string>
+    <string name="btn_7">7</string>
+    <string name="btn_8">8</string>
+    <string name="btn_9">9</string>
+    <string name="btn_Por">x</string>
+    <string name="btn_4">4</string>
+    <string name="btn_5">5</string>
+    <string name="btn_6">6</string>
+    <string name="btn_Resta">-</string>
+    <string name="btn_1">1</string>
+    <string name="btn_2">2</string>
+    <string name="btn_3">3</string>
+    <string name="btn_Suma">+</string>
+    <string name="btn_MasMenos">+ -</string>
+    <string name="btn_0">0</string>
+    <string name="btn_Punto">.</string>
+    <string name="btn_Igual">=</string>
+
+
+
 </resources>

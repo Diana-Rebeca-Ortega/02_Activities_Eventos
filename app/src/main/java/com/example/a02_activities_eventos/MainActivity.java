@@ -24,8 +24,16 @@ public class MainActivity extends AppCompatActivity {
         //Codigo para llenar una activitu
         Intent intent = new Intent(this, Activity_CalSencillita.class);
         startActivity(intent);
+
     }
-    //Paso 2: Enlazar el coponente grafico desde XML al metodo anterior en  activity main y dar clic en onClic
+    public  void  abrirActivityBasica (View view){
+        Intent i = new Intent(this, Activity_CalBasica.class);
+        startActivity(i);
+    }
+
+
+    //Paso 2: Enlazar el coponente grafico desde XML al metodo anterior en
+    // activity main y dar clic en onClic
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
