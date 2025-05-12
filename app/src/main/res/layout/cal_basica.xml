@@ -372,4 +372,61 @@
         android:textSize="34sp"
         app:layout_constraintStart_toEndOf="@+id/btn_Punto"
         app:layout_constraintTop_toBottomOf="@+id/btn_Suma" />
+
+    <Button
+        android:id="@+id/menC"
+        android:layout_width="77dp"
+        android:layout_height="75dp"
+        android:onClick="indicarOperador"
+        android:text="MC"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/menR" />
+
+    <Button
+        android:id="@+id/menR"
+        android:layout_width="71dp"
+        android:layout_height="75dp"
+        android:onClick="indicarOperador"
+        android:text="MR"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/menMas" />
+
+    <Button
+        android:id="@+id/menMas"
+        android:layout_width="66dp"
+        android:layout_height="75dp"
+        android:onClick="indicarOperador"
+        android:text="M+"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/menMenos" />
+
+    <Button
+        android:id="@+id/menMenos"
+        android:layout_width="69dp"
+        android:layout_height="78dp"
+        android:layout_marginEnd="1dp"
+        android:onClick="indicarOperador"
+        android:text="M-"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/menS" />
+
+    <Button
+        android:id="@+id/menS"
+        android:layout_width="55dp"
+        android:layout_height="67dp"
+        android:layout_marginEnd="3dp"
+        android:onClick="indicarOperador"
+        android:text="MS"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button47" />
+
+    <Button
+        android:id="@+id/button47"
+        android:layout_width="67dp"
+        android:layout_height="75dp"
+        android:layout_marginEnd="3dp"
+        android:onClick="indicarOperador"
+        android:text="M`"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,6 +14,8 @@ public class Activity_CalBasica extends Activity {
     private Button btnDividir,btnMultiplicar,btnMas,btnMenos, btnPorcentaje, btnRaiz , btnReiniciar, btnAjustes;
     private Button btn_Igual, btnCuadrado, btnUnoSobreX, btnPunto, btnBorrar, btnMasMenos;
     private Double primero, segundo;
+    private Double memoria=0.0;
+    private Button menMas, menMenos, menRecuperar, menLimpiar, menGuardar;
    private String operador;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -45,6 +47,12 @@ public class Activity_CalBasica extends Activity {
       btnPunto = findViewById(R.id.btn_Punto);
       btnBorrar = findViewById(R.id.btn_Borrar);
       btnMasMenos = findViewById(R.id.btn_MasMenos);
+      //enlazar botones de memoria
+        menMas = findViewById(R.id.menMas);
+        menMenos = findViewById(R.id.menMenos);
+        menLimpiar = findViewById(R.id.menC);
+        menRecuperar = findViewById(R.id.menR);
+        menGuardar = findViewById(R.id.menS);
     }
 //*********************Numeros************************
     public void indicarNumero(View v ){
@@ -120,10 +128,36 @@ public class Activity_CalBasica extends Activity {
           primero = Double.parseDouble(String.valueOf(cajaResultado.getText()));
           cajaResultado.setText("0");
           operador = "X";
+
       }if(v.getId() == R.id.btn_MasMenos){
           primero = Double.parseDouble(String.valueOf(cajaResultado.getText()));
           cajaResultado.setText(String.valueOf(  primero*(-1)));
           operador = "q";
+
+      }
+      if(v.getId() == R.id.menS){
+          memoria = Double.parseDouble(String.valueOf(cajaResultado.getText()));
+          cajaResultado.setText(String.valueOf(memoria  ));
+          operador = "S";
+      }
+      if(v.getId() == R.id.menMas){
+          memoria = memoria + Double.parseDouble(String.valueOf(cajaResultado.getText()));
+          cajaResultado.setText(String.valueOf(memoria  ));
+          operador = "MAS";
+      }if(v.getId() == R.id.menMenos){
+          memoria = memoria - Double.parseDouble(String.valueOf(cajaResultado.getText()));
+          cajaResultado.setText(String.valueOf(memoria  ));
+          operador = "MENOS";
+      }
+      if(v.getId() == R.id.menR){
+        //  memoria = memoria + Double.parseDouble(String.valueOf(cajaResultado.getText()));
+          cajaResultado.setText(String.valueOf(memoria  ));
+          operador = "REC";
+      }
+      if(v.getId() == R.id.menC){
+           memoria = 0.0;
+          cajaResultado.setText(String.valueOf(memoria  ));
+          operador = "LIM";
       }
 
     }//indicar operador
