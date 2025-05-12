@@ -25,6 +25,7 @@
         <activity android:name=".Activity_CalSencillita"></activity>
         <activity android:name=".Activity_CalBasica"></activity>
         <activity android:name=".Activity_CalCientifica"></activity>
+        <activity android:name=".Activity_CalProgramador"></activity>
     </application>
 
 </manifest>
