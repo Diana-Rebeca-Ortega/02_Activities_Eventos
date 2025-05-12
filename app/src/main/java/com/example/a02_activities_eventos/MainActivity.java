@@ -30,7 +30,10 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(this, Activity_CalBasica.class);
         startActivity(i);
     }
-
+    public  void  abrirActivityCientifica (View view){
+        Intent iN = new Intent(this, Activity_CalCientifica.class);
+        startActivity(iN);
+    }
 
     //Paso 2: Enlazar el coponente grafico desde XML al metodo anterior en
     // activity main y dar clic en onClic

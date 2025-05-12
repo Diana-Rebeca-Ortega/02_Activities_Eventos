@@ -31,5 +31,51 @@
     <string name="btn_Igual">=</string>
 
 
+    <string name="cbtn_MC">MC</string>
+    <string name="cbtn_MR">MR</string>
+    <string name="cbtn_Mmas">M+</string>
+    <string name="cbtn_Mmenos">M-</string>
+    <string name="cbtn_MS">MS</string>
+
+    <string name="cbtn_second">2º</string>
+    <string name="cbtn_PI">π</string>
+    <string name="cbtn_e">e</string>
+    <string name="cbtn_C">C</string>
+    <string name="cbtn_Borrar">del</string>
+
+    <string name="cbtn_1cuadrado">χ²</string>
+    <string name="cbtn_2Uno_SobreX">1/x</string>
+    <string name="cbtn_3ValorAbsoluto">|x|</string>
+    <string name="cbtn_4exponente">exp</string>
+    <string name="cbtn_5mod">mod</string>
+
+    <string name="cbtn_6dosRaizX">2√x</string>
+    <string name="cbtn_7parentesisIZQ">(</string>
+    <string name="cbtn_8parentesisDER">)</string>
+    <string name="cbtn_9nsimo">n!</string>
+    <string name="cbtn_10division">/</string>
+
+    <string name="cbtn_11XexpY">x^y</string>
+    <string name="cbtn_12diesEXP">10^x</string>
+    <string name="cbtn_13log">log</string>
+    <string name="cbtn_14logNatural">Ln</string>
+    <string name="cbtn_15masmenos">+/-</string>
+
+    <string name="cbtn_01">1</string>
+    <string name="cbtn_02">2</string>
+    <string name="cbtn_03">3</string>
+    <string name="cbtn_04">4</string>
+    <string name="cbtn_05">5</string>
+    <string name="cbtn_06">6</string>
+    <string name="cbtn_07">7</string>
+    <string name="cbtn_08">8</string>
+    <string name="cbtn_09">9</string>
+    <string name="cbtn_00">0</string>
+
+    <string name="cbtn_16punto">.</string>
+    <string name="cbtn_17igual">=</string>
+    <string name="cbtn_18mas">+</string>
+    <string name="cbtn_19menos">-</string>
+    <string name="cbtn_20multiplicacion">x</string>
 
 </resources>
