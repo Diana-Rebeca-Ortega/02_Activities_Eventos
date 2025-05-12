@@ -4,7 +4,7 @@
     <string name="btn_sencilla">SENCILLA</string>
 
     <string name="txtTitulo">ESTANDAR</string>
-    <string name="cajaResultado">0</string>
+    <string name="cajaResultadoBasica">0</string>
     <string name="btn_Porciento">%</string>
     <string name="btn_Raiz">√</string>
     <string name="btn_Cuadrado">x2</string>
