@@ -78,4 +78,12 @@
     <string name="cbtn_19menos">-</string>
     <string name="cbtn_20multiplicacion">x</string>
 
+    <string name="btnEA">A</string>
+    <string name="btnEB">B</string>
+    <string name="btnEC">C</string>
+    <string name="btnED">D</string>
+    <string name="btnEE">E</string>
+    <string name="btnEF">F</string>
+
+
 </resources>
