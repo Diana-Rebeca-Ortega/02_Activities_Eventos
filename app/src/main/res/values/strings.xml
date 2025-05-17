@@ -3,7 +3,7 @@
      <string name="titulo">CALCULADORA</string>
     <string name="btn_sencilla">SENCILLA</string>
 
-    <string name="txtTitulo">ESTANDAR</string>
+    <string name="txtTitulo">Convertir de:</string>
     <string name="cajaResultadoBasica">0</string>
     <string name="btn_Porciento">%</string>
     <string name="btn_Raiz">√</string>

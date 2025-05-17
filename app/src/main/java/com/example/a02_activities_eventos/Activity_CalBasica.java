@@ -3,12 +3,21 @@ package com.example.a02_activities_eventos;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import androidx.annotation.Nullable;
 
-public class Activity_CalBasica extends Activity {
+import java.util.ArrayList;
+
+public class Activity_CalBasica extends Activity implements AdapterView.OnItemSelectedListener {
+    //spinners del examen
+    private Spinner spinerSN_Ingresado, spinerSN_AConvertir;
+    ArrayList<String> listaSistemasNumericos;
+
     private EditText cajaResultado;
     private Button btn1, btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9,btn0;
     private Button btnDividir,btnMultiplicar,btnMas,btnMenos, btnPorcentaje, btnRaiz , btnReiniciar, btnAjustes;
@@ -21,6 +30,29 @@ public class Activity_CalBasica extends Activity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cal_basica);
+        //spinners del examen
+        spinerSN_Ingresado = findViewById(R.id.spn_uno);
+        spinerSN_AConvertir = findViewById(R.id.spn_dos);
+
+        listaSistemasNumericos = new ArrayList<>();
+        listaSistemasNumericos.add("Lista Sistemas Numericos...");
+        listaSistemasNumericos.add("Decimal");
+        listaSistemasNumericos.add("Binario");
+        listaSistemasNumericos.add("Octal");
+        listaSistemasNumericos.add("Hexadecimal");
+
+        ArrayAdapter<String> adaptadorSisNumericos = new ArrayAdapter<>(this,
+                android.R.layout.simple_list_item_1, listaSistemasNumericos);
+
+        spinerSN_Ingresado.setAdapter(adaptadorSisNumericos);
+        spinerSN_AConvertir.setAdapter(adaptadorSisNumericos);
+
+        spinerSN_Ingresado.setOnItemSelectedListener(this);
+        spinerSN_AConvertir.setOnItemSelectedListener(this);
+
+
+
+
         cajaResultado = findViewById(R.id.cajaResB);
         //Enlazar numeros
         btn1= findViewById(R.id.btn_1);
@@ -54,6 +86,9 @@ public class Activity_CalBasica extends Activity {
         menRecuperar = findViewById(R.id.menR);
         menGuardar = findViewById(R.id.menS);
     }
+
+
+
 //*********************Numeros************************
     public void indicarNumero(View v ){
         if(v.getId() == R.id.btn_1){
@@ -218,4 +253,13 @@ public class Activity_CalBasica extends Activity {
 
     }
 
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
 }
