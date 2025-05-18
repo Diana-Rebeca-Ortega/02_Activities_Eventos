@@ -2,12 +2,14 @@ package com.example.a02_activities_eventos;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -17,7 +19,12 @@ public class Activity_CalBasica extends Activity implements AdapterView.OnItemSe
     //spinners del examen
     private Spinner spinerSN_Ingresado, spinerSN_AConvertir;
     ArrayList<String> listaSistemasNumericos;
+    private String primerSpiner="";
 
+    private Button btnA, btnB, btnC, btnD, btnE, btnF;
+
+    //importando el metodo para convertir
+    ConversionesLogica cl = new ConversionesLogica();
     private EditText cajaResultado;
     private Button btn1, btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9,btn0;
     private Button btnDividir,btnMultiplicar,btnMas,btnMenos, btnPorcentaje, btnRaiz , btnReiniciar, btnAjustes;
@@ -51,7 +58,13 @@ public class Activity_CalBasica extends Activity implements AdapterView.OnItemSe
         spinerSN_AConvertir.setOnItemSelectedListener(this);
 
 
-
+//***********Enlazar numeros hexadecimales
+        btnA = findViewById(R.id.btn_a);
+        btnB = findViewById(R.id.btn_b);
+        btnC = findViewById(R.id.btn_c);
+        btnD = findViewById(R.id.btn_d);
+        btnE = findViewById(R.id.btn_e);
+        btnF = findViewById(R.id.btn_f);
 
         cajaResultado = findViewById(R.id.cajaResB);
         //Enlazar numeros
@@ -85,9 +98,30 @@ public class Activity_CalBasica extends Activity implements AdapterView.OnItemSe
         menLimpiar = findViewById(R.id.menC);
         menRecuperar = findViewById(R.id.menR);
         menGuardar = findViewById(R.id.menS);
+
     }
-
-
+//***************Numeros Hexadecinales ****************************
+    public void indicarNumerosHexadecimales(View v ){
+        if(v.getId() == R.id.btn_a){
+            cajaResultado.setText(cajaResultado.getText()+"A");
+            borrarCero();
+        } if(v.getId() == R.id.btn_b){
+            cajaResultado.setText(cajaResultado.getText()+"B");
+            borrarCero();
+        } if(v.getId() == R.id.btn_c){
+            cajaResultado.setText(cajaResultado.getText()+"C");
+            borrarCero();
+        } if(v.getId() == R.id.btn_d){
+            cajaResultado.setText(cajaResultado.getText()+"D");
+            borrarCero();
+        } if(v.getId() == R.id.btn_e){
+            cajaResultado.setText(cajaResultado.getText()+"E");
+            borrarCero();
+        } if(v.getId() == R.id.btn_f){
+            cajaResultado.setText(cajaResultado.getText()+"F");
+            borrarCero();
+        }
+    }
 
 //*********************Numeros************************
     public void indicarNumero(View v ){
@@ -255,6 +289,104 @@ public class Activity_CalBasica extends Activity implements AdapterView.OnItemSe
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//********************spiner 1
+ if(parent.getId()==R.id.spn_uno){
+
+ if(parent.getSelectedItem().toString().equals("Decimal")){
+    primerSpiner ="Decimal";
+    ArrayList <String>  listaTemporal = (ArrayList<String>) listaSistemasNumericos.clone();
+    listaTemporal.remove("Decimal");
+    ArrayAdapter <String> nuevoAdaptador = new ArrayAdapter<>(this,
+    android.R.layout.simple_list_item_1, listaTemporal);
+    spinerSN_AConvertir.setAdapter(nuevoAdaptador);
+ } else if(parent.getSelectedItem().toString().equals("Binario")){
+     primerSpiner ="Binario";
+     ArrayList <String>  listaTemporal = (ArrayList<String>) listaSistemasNumericos.clone();
+     listaTemporal.remove("Binario");
+     ArrayAdapter <String> nuevoAdaptador = new ArrayAdapter<>(this,
+             android.R.layout.simple_list_item_1, listaTemporal);
+     spinerSN_AConvertir.setAdapter(nuevoAdaptador);
+ }else if(parent.getSelectedItem().toString().equals("Octal")){
+     primerSpiner ="Octal";
+     ArrayList <String>  listaTemporal = (ArrayList<String>) listaSistemasNumericos.clone();
+     listaTemporal.remove("Octal");
+     ArrayAdapter <String> nuevoAdaptador = new ArrayAdapter<>(this,
+             android.R.layout.simple_list_item_1, listaTemporal);
+     spinerSN_AConvertir.setAdapter(nuevoAdaptador);
+ }else if(parent.getSelectedItem().toString().equals("Hexadecimal")){
+     primerSpiner ="Hexadecimal";
+     ArrayList <String>  listaTemporal = (ArrayList<String>) listaSistemasNumericos.clone();
+     listaTemporal.remove("Hexadecimal");
+     ArrayAdapter <String> nuevoAdaptador = new ArrayAdapter<>(this,
+             android.R.layout.simple_list_item_1, listaTemporal);
+     spinerSN_AConvertir.setAdapter(nuevoAdaptador);
+ }
+ }//spinner 1
+
+        //llamar al metodo conversor de sistemas numericos
+        try{
+
+        if(primerSpiner.equals("Decimal")){
+            if(parent.getSelectedItem().toString().equals("Binario")){
+               // Toast.makeText(this,"DEBI", Toast.LENGTH_SHORT).show();
+              String res=  cl.convertidor(String.valueOf(cajaResultado.getText()), "10","2");
+              cajaResultado.setText(res);
+              borrarDatosAlVolverAPresionarElSpinner();
+            }if(parent.getSelectedItem().toString().equals("Octal")){
+                String res=  cl.convertidor(String.valueOf(cajaResultado.getText()), "10","8");
+                cajaResultado.setText(res);
+                borrarDatosAlVolverAPresionarElSpinner();
+            }if(parent.getSelectedItem().toString().equals("Hexadecimal")){
+                String res=  cl.convertidor(String.valueOf(cajaResultado.getText()), "10","16");
+                cajaResultado.setText(res);
+                borrarDatosAlVolverAPresionarElSpinner();
+            }
+        }if(primerSpiner.equals("Binario")){
+            if(parent.getSelectedItem().toString().equals("Decimal")){
+                String res=  cl.convertidor(String.valueOf(cajaResultado.getText()), "2","10");
+                cajaResultado.setText(res);
+                borrarDatosAlVolverAPresionarElSpinner();
+            }if(parent.getSelectedItem().toString().equals("Octal")){
+                    String res=  cl.convertidor(String.valueOf(cajaResultado.getText()), "2","8");
+                    cajaResultado.setText(res);
+                    borrarDatosAlVolverAPresionarElSpinner();
+            }if(parent.getSelectedItem().toString().equals("Hexadecimal")){
+                    String res=  cl.convertidor(String.valueOf(cajaResultado.getText()), "2","16");
+                    cajaResultado.setText(res);
+                    borrarDatosAlVolverAPresionarElSpinner();
+            }
+        }if(primerSpiner.equals("Octal")){
+                if(parent.getSelectedItem().toString().equals("Decimal")){
+                    String res=  cl.convertidor(String.valueOf(cajaResultado.getText()), "8","10");
+                    cajaResultado.setText(res);
+                    borrarDatosAlVolverAPresionarElSpinner();
+                } if(parent.getSelectedItem().toString().equals("Binario")){
+                    String res=  cl.convertidor(String.valueOf(cajaResultado.getText()), "8","2");
+                    cajaResultado.setText(res);
+                    borrarDatosAlVolverAPresionarElSpinner();
+                }if(parent.getSelectedItem().toString().equals("Hexadecimal")){
+                    String res=  cl.convertidor(String.valueOf(cajaResultado.getText()), "8","16");
+                    cajaResultado.setText(res);
+                    borrarDatosAlVolverAPresionarElSpinner();
+                }
+        }if(primerSpiner.equals("Hexadecimal")){
+                if(parent.getSelectedItem().toString().equals("Decimal")){
+                    String res=  cl.convertidor(String.valueOf(cajaResultado.getText()), "16","10");
+                    cajaResultado.setText(res);
+                    borrarDatosAlVolverAPresionarElSpinner();
+                } if(parent.getSelectedItem().toString().equals("Binario")){
+                    String res=  cl.convertidor(String.valueOf(cajaResultado.getText()), "16","2");
+                    cajaResultado.setText(res);
+                    borrarDatosAlVolverAPresionarElSpinner();
+                }if(parent.getSelectedItem().toString().equals("Octal")){
+                    String res=  cl.convertidor(String.valueOf(cajaResultado.getText()), "16","8");
+                    cajaResultado.setText(res);
+                    borrarDatosAlVolverAPresionarElSpinner();
+                }
+            }
+        }catch (Exception e){
+            Toast.makeText(this,"se ha producido un error", Toast.LENGTH_SHORT).show();
+        }
 
     }
 
@@ -262,4 +394,16 @@ public class Activity_CalBasica extends Activity implements AdapterView.OnItemSe
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
+    public void borrarDatosAlVolverAPresionarElSpinner(){
+        spinerSN_Ingresado.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction()==MotionEvent.ACTION_DOWN){
+                    cajaResultado.setText("0");
+                }
+                return false;
+            }
+        });
+    }
+
 }

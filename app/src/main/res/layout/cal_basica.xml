@@ -281,6 +281,7 @@
         android:layout_marginEnd="31dp"
         android:layout_marginBottom="8dp"
         android:backgroundTint="#6A0A0A"
+        android:onClick="indicarNumero"
         android:text="@string/btn_Punto"
         android:textColor="#FFFFFF"
         android:textSize="34sp"
@@ -439,6 +440,7 @@
         android:layout_height="75dp"
         android:layout_marginBottom="3dp"
         android:background="#910083"
+        android:onClick="indicarNumerosHexadecimales"
         android:text="@string/btnEA"
         app:layout_constraintBottom_toTopOf="@+id/menC"
         app:layout_constraintStart_toStartOf="parent" />
@@ -450,6 +452,7 @@
         android:layout_marginStart="6dp"
         android:layout_marginBottom="8dp"
         android:background="#910083"
+        android:onClick="indicarNumerosHexadecimales"
         android:text="@string/btnEB"
         app:layout_constraintBottom_toTopOf="@+id/menR"
         app:layout_constraintStart_toEndOf="@+id/btn_a" />
@@ -461,6 +464,7 @@
         android:layout_marginStart="4dp"
         android:layout_marginBottom="1dp"
         android:background="#910083"
+        android:onClick="indicarNumerosHexadecimales"
         android:text="@string/btnEC"
         app:layout_constraintBottom_toTopOf="@+id/menR"
         app:layout_constraintStart_toEndOf="@+id/btn_b" />
@@ -472,6 +476,7 @@
         android:layout_marginStart="12dp"
         android:layout_marginBottom="16dp"
         android:background="#910083"
+        android:onClick="indicarNumerosHexadecimales"
         android:text="@string/btnED"
         app:layout_constraintBottom_toTopOf="@+id/menMenos"
         app:layout_constraintStart_toEndOf="@+id/btn_c" />
@@ -483,6 +488,7 @@
         android:layout_marginStart="3dp"
         android:layout_marginBottom="4dp"
         android:background="#910083"
+        android:onClick="indicarNumerosHexadecimales"
         android:text="@string/btnEE"
         app:layout_constraintBottom_toTopOf="@+id/menMenos"
         app:layout_constraintStart_toEndOf="@+id/btn_d" />
@@ -494,6 +500,7 @@
         android:layout_marginStart="7dp"
         android:layout_marginBottom="6dp"
         android:background="#910083"
+        android:onClick="indicarNumerosHexadecimales"
         android:text="@string/btnEF"
         app:layout_constraintBottom_toTopOf="@+id/button47"
         app:layout_constraintStart_toEndOf="@+id/btn_e" />
