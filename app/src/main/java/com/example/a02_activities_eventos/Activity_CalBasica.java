@@ -162,6 +162,9 @@ public class Activity_CalBasica extends Activity implements AdapterView.OnItemSe
     }//numeros
     //***********************Operadores****************************
   public void indicarOperador(View v ) {
+        try{
+
+
         //operadores basicos
    if(v.getId() == R.id.btn_x){
        primero = Double.parseDouble(String.valueOf(cajaResultado.getText()));
@@ -228,7 +231,10 @@ public class Activity_CalBasica extends Activity implements AdapterView.OnItemSe
           cajaResultado.setText(String.valueOf(memoria  ));
           operador = "LIM";
       }
+        }catch (Exception e){
+            Toast.makeText(this,"se ha producido un error", Toast.LENGTH_SHORT).show();
 
+        }
     }//indicar operador
 
    //*****************Otras funciones*****************************
@@ -327,6 +333,8 @@ public class Activity_CalBasica extends Activity implements AdapterView.OnItemSe
         try{
 
         if(primerSpiner.equals("Decimal")){
+            desactivarBotones("D");
+            borrarDatosAlVolverAPresionarElSpinner();
             if(parent.getSelectedItem().toString().equals("Binario")){
                // Toast.makeText(this,"DEBI", Toast.LENGTH_SHORT).show();
               String res=  cl.convertidor(String.valueOf(cajaResultado.getText()), "10","2");
@@ -342,6 +350,8 @@ public class Activity_CalBasica extends Activity implements AdapterView.OnItemSe
                 borrarDatosAlVolverAPresionarElSpinner();
             }
         }if(primerSpiner.equals("Binario")){
+                desactivarBotones("B");
+                borrarDatosAlVolverAPresionarElSpinner();
             if(parent.getSelectedItem().toString().equals("Decimal")){
                 String res=  cl.convertidor(String.valueOf(cajaResultado.getText()), "2","10");
                 cajaResultado.setText(res);
@@ -356,6 +366,8 @@ public class Activity_CalBasica extends Activity implements AdapterView.OnItemSe
                     borrarDatosAlVolverAPresionarElSpinner();
             }
         }if(primerSpiner.equals("Octal")){
+                desactivarBotones("O");
+                borrarDatosAlVolverAPresionarElSpinner();
                 if(parent.getSelectedItem().toString().equals("Decimal")){
                     String res=  cl.convertidor(String.valueOf(cajaResultado.getText()), "8","10");
                     cajaResultado.setText(res);
@@ -370,6 +382,8 @@ public class Activity_CalBasica extends Activity implements AdapterView.OnItemSe
                     borrarDatosAlVolverAPresionarElSpinner();
                 }
         }if(primerSpiner.equals("Hexadecimal")){
+                desactivarBotones("H");
+                borrarDatosAlVolverAPresionarElSpinner();
                 if(parent.getSelectedItem().toString().equals("Decimal")){
                     String res=  cl.convertidor(String.valueOf(cajaResultado.getText()), "16","10");
                     cajaResultado.setText(res);
@@ -404,6 +418,88 @@ public class Activity_CalBasica extends Activity implements AdapterView.OnItemSe
                 return false;
             }
         });
+    }
+
+    //desactivar botones
+    public void desactivarBotones(String spinItem){
+        if( spinItem.equals("D") ){
+            btnA.setEnabled(false);
+            btnB.setEnabled(false);
+            btnC.setEnabled(false);
+            btnD.setEnabled(false);
+            btnE.setEnabled(false);
+            btnF.setEnabled(false);
+
+            btn0.setEnabled(true);
+            btn1.setEnabled(true);
+            btn2.setEnabled(true);
+            btn3.setEnabled(true);
+            btn4.setEnabled(true);
+            btn5.setEnabled(true);
+            btn6.setEnabled(true);
+            btn7.setEnabled(true);
+            btn8.setEnabled(true);
+            btn9.setEnabled(true);
+
+        }else if ( spinItem.equals("B")){
+            btnA.setEnabled(false);
+            btnB.setEnabled(false);
+            btnC.setEnabled(false);
+            btnD.setEnabled(false);
+            btnE.setEnabled(false);
+            btnF.setEnabled(false);
+
+            btn0.setEnabled(true);
+            btn1.setEnabled(true);
+
+            btn2.setEnabled(false);
+            btn3.setEnabled(false);
+            btn4.setEnabled(false);
+            btn5.setEnabled(false);
+            btn6.setEnabled(false);
+            btn7.setEnabled(false);
+            btn8.setEnabled(false);
+            btn9.setEnabled(false);
+
+
+        }else if ( spinItem.equals("O")){
+            btnA.setEnabled(false);
+            btnB.setEnabled(false);
+            btnC.setEnabled(false);
+            btnD.setEnabled(false);
+            btnE.setEnabled(false);
+            btnF.setEnabled(false);
+
+            btn0.setEnabled(true);
+            btn1.setEnabled(true);
+            btn2.setEnabled(true);
+            btn3.setEnabled(true);
+            btn4.setEnabled(true);
+            btn5.setEnabled(true);
+            btn6.setEnabled(true);
+            btn7.setEnabled(true);
+            btn8.setEnabled(false);
+            btn9.setEnabled(false);
+
+        }else if ( spinItem.equals("H")){
+            btnA.setEnabled(true);
+            btnB.setEnabled(true);
+            btnC.setEnabled(true);
+            btnD.setEnabled(true);
+            btnE.setEnabled(true);
+            btnF.setEnabled(true);
+
+            btn0.setEnabled(true);
+            btn1.setEnabled(true);
+            btn2.setEnabled(true);
+            btn3.setEnabled(true);
+            btn4.setEnabled(true);
+            btn5.setEnabled(true);
+            btn6.setEnabled(true);
+            btn7.setEnabled(true);
+            btn8.setEnabled(true);
+            btn9.setEnabled(true);
+        }
     }
 
 }
